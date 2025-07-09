@@ -49,6 +49,7 @@ const StartSellingForm = () => {
   // Dummy API simulation
   const submitToAPI = async (data) => {
     // Simulate API delay
+    console.log(data);
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     // Simulate random success/failure (70% success rate)
@@ -322,7 +323,7 @@ const StartSellingForm = () => {
           <div className="flex items-center justify-between mb-4 gap-6">
             <div>
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Welcome Name, Fill out your basic details</h1>
-              <p className="text-gray-600">I'm looking to Sell</p>
+              <p className="text-gray-600">I&apos;m looking to Sell</p>
             </div>
             <div className="max-sm:hidden">
               <Image src={fold1image1} alt="Start Selling" />
