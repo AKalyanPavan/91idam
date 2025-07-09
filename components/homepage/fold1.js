@@ -2,17 +2,10 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { Search, ChevronDown } from 'lucide-react'
 import fold1image1 from '@/images/homepage/fold1image1.png'
 import PropertySearch from '@/components/homepage/property-search.js'
 
 export default function Fold1() {
-  const [selectedPropertyType, setSelectedPropertyType] = useState('Residential')
-  const [selectedPlotType, setSelectedPlotType] = useState('Residential Plots/Land')
-  const [isPropertyTypeOpen, setIsPropertyTypeOpen] = useState(false)
-  const [isBudgetOpen, setIsBudgetOpen] = useState(false)
-  const [isAreaOpen, setIsAreaOpen] = useState(false)
-  const [isPostedByOpen, setIsPostedByOpen] = useState(false)
 
   return (
     <section className="relative bg-[#1759730d]">
@@ -25,7 +18,7 @@ export default function Fold1() {
             {/* Heading */}
             <div className="space-y-4 text-center bg-background/5 backdrop-blur-sm rounded-[10px] z-1 relative mx-4">
               <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E2022] leading-tight">
-                Land you'll love.
+                Land you&apos;ll love.
               </span>
               <br className="max-xl:hidden" />
               <span className="text-4xl md:text-5xl lg:text-6xl font-bold sm:text-[#B59327] text-white leading-tight">

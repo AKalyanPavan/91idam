@@ -127,7 +127,7 @@ const propertySlice = createSlice({
         state.error = action.error.message;
       })
       // Save property
-      .addCase(saveProperty.fulfilled, (state, action) => {
+      .addCase(saveProperty.fulfilled, (state) => {
         state.savedProperties.push(state.currentProperty);
       })
       // Submit contact form

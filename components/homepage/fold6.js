@@ -43,10 +43,10 @@ const Fold6 = () => {
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-base mb-4" style={{ color: 'rgb(103, 119, 136)', fontFamily: 'Mongolian Baiti', textTransform: 'uppercase' }}>
-            Cities You'll Love
+            Cities You&apos;ll Love
           </p>
           <h2 className="font-semibold text-3xl lg:text-4xl mb-4" style={{ color: 'rgb(30, 32, 34)', fontFamily: 'Montserrat' }}>
-            Choose Plots in India's Most Popular Cities
+            Choose Plots in India&apos;s Most Popular Cities
           </h2>
         </div>
         

@@ -1,13 +1,6 @@
 'use client'
 import React, { useState } from 'react';
 
-const styles = `body {
-    font-family: 'Montserrat', 'Mongolian Baiti', system-ui, -apple-system, sans-serif;
-    line-height: 1.6;
-    color: #1E2022;
-    background-color: #ffffff;
-}`
-
 // Image URL mappings
 const imageMap = {
   '275a0daee60e09660ef4b047a9f00de52101fe0a': 'https://raw.githubusercontent.com/Ravigandhiarul/images/main/275a0daee60e09660ef4b047a9f00de52101fe0a.png',

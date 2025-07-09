@@ -75,7 +75,7 @@ const Fold4 = () => {
   );
 };
 
-const PropertyCard = ({ image, title, price, location, type = "project" }) => {
+const PropertyCard = ({ image, title, type = "project" }) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-lg">
       <div className="relative">
