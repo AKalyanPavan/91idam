@@ -63,6 +63,7 @@ const uiSlice = createSlice({
       state.notification.show = false;
     },
     resetUI: (state) => {
+      console.log(state);
       return initialState;
     },
   },

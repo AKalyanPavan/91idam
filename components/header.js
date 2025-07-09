@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { User, Menu, X } from 'lucide-react'
 import logo from '@/images/logo.svg'
 
@@ -23,41 +24,41 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0 cursor-pointer">
-            <a href="/">
+            <Link href="/">
               <Image
                 src={logo}
                 alt="91 IDAM"
                 width={200}
               />
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden xl:flex items-center space-x-8">
-            <a 
+            <Link 
               href="#" 
               className="text-[#B59327] hover:text-[#9d7e1f] font-medium transition-colors duration-200"
             >
               For Buyers
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="#" 
               className="text-gray-700 hover:text-[#175973] font-medium transition-colors duration-200"
             >
               For Owners
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="#" 
               className="text-gray-700 hover:text-[#175973] font-medium transition-colors duration-200"
             >
               For Dealers/Builders
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="#" 
               className="text-gray-700 hover:text-[#175973] font-medium transition-colors duration-200"
             >
               Contact
-            </a>
+            </Link>
           </nav>
 
           {/* Right side buttons and profile */}
@@ -97,30 +98,30 @@ export default function Header() {
                       <p className="text-sm font-medium text-[#175973]">LOGIN</p>
                     </div>
                     
-                    <a
+                    <Link
                       href="#"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#DFDBCF] transition-colors duration-200"
                     >
                       My Activity
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href="#"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#DFDBCF] transition-colors duration-200"
                     >
                       Latest searches
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href="#"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#DFDBCF] transition-colors duration-200"
                     >
                       Wish Listed
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href="#"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#DFDBCF] transition-colors duration-200"
                     >
                       Contacted
-                    </a>
+                    </Link>
                   </div>
                 </>
               )}
@@ -144,30 +145,30 @@ export default function Header() {
         {isMobileMenuOpen && (
           <div className="xl:hidden border-t border-gray-200">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <a
+              <Link
                 href="#"
                 className="block px-3 py-2 text-base font-medium text-[#B59327] hover:text-[#9d7e1f] hover:bg-[#DFDBCF] rounded-md transition-colors duration-200"
               >
                 For Buyers
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#175973] hover:bg-[#DFDBCF] rounded-md transition-colors duration-200"
               >
                 For Owners
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#175973] hover:bg-[#DFDBCF] rounded-md transition-colors duration-200"
               >
                 For Dealers/Builders
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#175973] hover:bg-[#DFDBCF] rounded-md transition-colors duration-200"
               >
                 Contact
-              </a>
+              </Link>
               <div className="flex flex-col space-y-2 pt-4">
                 <button className="w-full px-4 py-2 bg-[#175973] text-white font-medium rounded-md hover:bg-[#144a5e] transition-colors duration-200">
                   Start Selling

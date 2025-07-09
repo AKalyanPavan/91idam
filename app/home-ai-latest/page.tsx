@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import { MapPin, Search, ChevronDown, Phone, Mail, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { MapPin, Phone, Mail, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -115,7 +115,7 @@ const HeroSection = () => {
                 className="text-5xl lg:text-6xl font-semibold leading-tight"
                 style={{ color: 'rgb(30, 32, 34)', fontFamily: 'Montserrat' }}
               >
-                Land you'll love.
+                Land you&apos;ll love.
               </h1>
               <h2 
                 className="text-5xl lg:text-6xl font-semibold leading-tight"
@@ -254,7 +254,7 @@ const PlotCard = ({ image, title }) => {
   );
 };
 
-const PropertyCard = ({ image, title, price, location, type = "project" }) => {
+const PropertyCard = ({ image, title, type = "project" }) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-lg">
       <div className="relative">
@@ -464,10 +464,10 @@ const SellerCategorySection = () => {
         <div className="mt-16 bg-gray-50 rounded-lg p-8">
           <div className="text-center mb-12">
             <h3 className="font-semibold text-2xl lg:text-3xl mb-4" style={{ color: 'rgb(30, 32, 34)', fontFamily: 'Montserrat' }}>
-              Choose Who's Selling
+              Choose Who&apos;s Selling
             </h3>
             <p className="text-base" style={{ color: 'rgb(103, 119, 136)', fontFamily: 'Mongolian Baiti' }}>
-              Discover Listings You'll Like
+              Discover Listings You&apos;ll Like
             </p>
           </div>
           
@@ -574,10 +574,10 @@ const CitiesSection = () => {
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-base mb-4" style={{ color: 'rgb(103, 119, 136)', fontFamily: 'Mongolian Baiti', textTransform: 'uppercase' }}>
-            Cities You'll Love
+            Cities You&apos;ll Love
           </p>
           <h2 className="font-semibold text-3xl lg:text-4xl mb-4" style={{ color: 'rgb(30, 32, 34)', fontFamily: 'Montserrat' }}>
-            Choose Plots in India's Most Popular Cities
+            Choose Plots in India&apos;s Most Popular Cities
           </h2>
         </div>
         

@@ -1043,7 +1043,7 @@ const HeroSection = () => {
         </div>
         <div className="hero-text-section">
           <div className="hero-heading">
-            <h1 className="hero-title">Land you'll love.</h1>
+            <h1 className="hero-title">Land you&apos;ll love.</h1>
             <div className="hero-subtitle-overlay">
               <h2 className="hero-subtitle">A place to start.</h2>
             </div>
@@ -1119,7 +1119,7 @@ const HeroSection = () => {
 };
 
 // Property Card Component
-const PropertyCard = ({ image, title, price, location }) => {
+const PropertyCard = ({ image, title, price }) => {
   return (
     <div className="property-card">
       <div className="property-image">
@@ -1259,8 +1259,8 @@ const SellerTypesSection = () => {
           <h2 className="seller-title">Plots/Land Posted by</h2>
           <p className="seller-subtitle">Browse by Seller Category</p>
           <div className="seller-main-text">
-            <h3 className="seller-heading">Choose Who's Selling</h3>
-            <p className="seller-description">Discover Listings You'll Like</p>
+            <h3 className="seller-heading">Choose Who&apos;s Selling</h3>
+            <p className="seller-description">Discover Listings You&apos;ll Like</p>
           </div>
         </div>
         <div className="seller-cards">
@@ -1376,8 +1376,8 @@ const CitiesSection = () => {
   return (
     <section className="cities-section">
       <div className="section-header">
-        <p className="section-overline">CITIES YOU'LL LOVE</p>
-        <h2 className="section-title">Choose Plots in India's Most Popular Cities</h2>
+        <p className="section-overline">CITIES YOU&apos;LL LOVE</p>
+        <h2 className="section-title">Choose Plots in India&apos;s Most Popular Cities</h2>
       </div>
       <div className="cities-grid">
         {cities.map(city => (
