@@ -49,10 +49,10 @@ export default function Fold3() {
           <div className="bg-white rounded-sm shadow-xl p-4 sm:p-6 lg:p-8 z-1 relative">
             <div className="mb-8">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-                Choose Who's Selling
+                Choose Who&apos;s Selling
               </h2>
               <p className="text-lg text-gray-600">
-                Discover Listings You'll Like
+                Discover Listings You&apos;ll Like
               </p>
             </div>
             

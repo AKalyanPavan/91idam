@@ -1,6 +1,4 @@
 'use client'
-
-import { useState } from 'react'
 import Image from 'next/image'
 import fold1image1 from '@/images/homepage/fold1image1.png'
 import PropertySearch from '@/components/homepage/property-search.js'
