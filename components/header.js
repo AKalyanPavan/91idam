@@ -3,14 +3,16 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { User, Menu, X } from 'lucide-react'
+import { User, Menu, X, ChevronDown } from 'lucide-react'
 import logo from '@/images/logo.svg'
 import { UserAuthentication } from "@/components/user-authentication.js";
 
 export default function Header() {
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState(null)
+  const [activeMobileDropdown, setActiveMobileDropdown] = useState(null)
 
   const toggleProfileMenu = () => {
     setIsProfileMenuOpen(!isProfileMenuOpen)
@@ -20,9 +22,56 @@ export default function Header() {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
+  const handleDropdownToggle = (dropdown) => {
+    setActiveDropdown(activeDropdown === dropdown ? null : dropdown)
+  }
+
+  const handleMobileDropdownToggle = (dropdown) => {
+    setActiveMobileDropdown(activeMobileDropdown === dropdown ? null : dropdown)
+  }
+
+  const closeAllDropdowns = () => {
+    setActiveDropdown(null)
+    setIsProfileMenuOpen(false)
+  }
+
+  // Dropdown menu data
+  const dropdownMenus = {
+    buyers: {
+      title: "For Buyers",
+      items: [
+        { label: "Corner Plots", href: "#" },
+        { label: "Plots in Gated Community", href: "#" },
+        { label: "East facing plots", href: "#" },
+        { label: "Plots with Compound wall", href: "#" }
+      ]
+    },
+    owners: {
+      title: "For Owners",
+      items: [
+        { label: "Post Property For Free", href: "#" },
+        { label: "View Responses", href: "#" }
+      ]
+    },
+    dealers: {
+      title: "For Dealers/Builders",
+      items: [
+        { label: "Post Property", href: "#" },
+        { label: "View Responses", href: "#" }
+      ]
+    },
+    contact: {
+      title: "Contact",
+      items: [
+        { label: "Toll Free | 9.30 AM to 6.30 PM", subtitle: "(Mon-Sun)", phone: "0000-00-00000", href: "#" },
+        { label: "For International Users", phone: "+91-000-0000000", href: "#" }
+      ]
+    }
+  }
+
   return (
     <>
-      <header className="shadow-sm py-3 bg-[#DFDBCF] sticky top-0 z-3">
+      <header className="shadow-sm py-3 bg-[#DFDBCF] sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
@@ -38,30 +87,146 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden xl:flex items-center space-x-8">
-              <Link 
-                href="#" 
-                className="text-[#B59327] hover:text-[#9d7e1f] font-medium transition-colors duration-200"
-              >
-                For Buyers
-              </Link>
-              <Link 
-                href="#" 
-                className="text-gray-700 hover:text-[#175973] font-medium transition-colors duration-200"
-              >
-                For Owners
-              </Link>
-              <Link 
-                href="#" 
-                className="text-gray-700 hover:text-[#175973] font-medium transition-colors duration-200"
-              >
-                For Dealers/Builders
-              </Link>
-              <Link 
-                href="#" 
-                className="text-gray-700 hover:text-[#175973] font-medium transition-colors duration-200"
-              >
-                Contact
-              </Link>
+              {/* For Buyers Dropdown */}
+              <div className="relative">
+                <button 
+                  onClick={() => handleDropdownToggle('buyers')}
+                  className="flex items-center text-[#B59327] hover:text-[#9d7e1f] font-medium transition-colors duration-200"
+                >
+                  For Buyers
+                  <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${activeDropdown === 'buyers' ? 'rotate-180' : ''}`} />
+                </button>
+
+                {activeDropdown === 'buyers' && (
+                  <>
+                    <div 
+                      className="fixed inset-0 z-10" 
+                      onClick={closeAllDropdowns}
+                    ></div>
+                    <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-20">
+                      <div className="px-4 py-2 border-b border-gray-100">
+                        <p className="text-sm font-semibold text-[#175973]">Plots/Land</p>
+                      </div>
+                      {dropdownMenus.buyers.items.map((item, index) => (
+                        <Link
+                          key={index}
+                          href={item.href}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#DFDBCF] transition-colors duration-200"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+
+              {/* For Owners Dropdown */}
+              <div className="relative">
+                <button 
+                  onClick={() => handleDropdownToggle('owners')}
+                  className="flex items-center text-gray-700 hover:text-[#175973] font-medium transition-colors duration-200"
+                >
+                  For Owners
+                  <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${activeDropdown === 'owners' ? 'rotate-180' : ''}`} />
+                </button>
+
+                {activeDropdown === 'owners' && (
+                  <>
+                    <div 
+                      className="fixed inset-0 z-10" 
+                      onClick={closeAllDropdowns}
+                    ></div>
+                    <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-20">
+                      <div className="px-4 py-2 border-b border-gray-100">
+                        <p className="text-sm font-semibold text-[#175973]">Owners Offering</p>
+                      </div>
+                      {dropdownMenus.owners.items.map((item, index) => (
+                        <Link
+                          key={index}
+                          href={item.href}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#DFDBCF] transition-colors duration-200"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+
+              {/* For Dealers/Builders Dropdown */}
+              <div className="relative">
+                <button 
+                  onClick={() => handleDropdownToggle('dealers')}
+                  className="flex items-center text-gray-700 hover:text-[#175973] font-medium transition-colors duration-200"
+                >
+                  For Dealers/Builders
+                  <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${activeDropdown === 'dealers' ? 'rotate-180' : ''}`} />
+                </button>
+
+                {activeDropdown === 'dealers' && (
+                  <>
+                    <div 
+                      className="fixed inset-0 z-10" 
+                      onClick={closeAllDropdowns}
+                    ></div>
+                    <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-20">
+                      <div className="px-4 py-2 border-b border-gray-100">
+                        <p className="text-sm font-semibold text-[#175973]">Dealers Offering</p>
+                      </div>
+                      {dropdownMenus.dealers.items.map((item, index) => (
+                        <Link
+                          key={index}
+                          href={item.href}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#DFDBCF] transition-colors duration-200"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+
+              {/* Contact Dropdown */}
+              <div className="relative">
+                <button 
+                  onClick={() => handleDropdownToggle('contact')}
+                  className="flex items-center text-gray-700 hover:text-[#175973] font-medium transition-colors duration-200"
+                >
+                  Contact
+                  <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${activeDropdown === 'contact' ? 'rotate-180' : ''}`} />
+                </button>
+
+                {activeDropdown === 'contact' && (
+                  <>
+                    <div 
+                      className="fixed inset-0 z-10" 
+                      onClick={closeAllDropdowns}
+                    ></div>
+                    <div className="absolute left-0 mt-2 w-80 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-20">
+                      <div className="px-4 py-2 border-b border-gray-100">
+                        <p className="text-sm font-semibold text-[#175973]">Contact us</p>
+                      </div>
+                      {dropdownMenus.contact.items.map((item, index) => (
+                        <div key={index} className="px-4 py-3 hover:bg-[#DFDBCF] transition-colors duration-200">
+                          <div className="flex items-center">
+                            <span className="text-gray-600 mr-2">📞</span>
+                            <div>
+                              <p className="text-sm text-gray-700">{item.label}</p>
+                              {item.subtitle && (
+                                <p className="text-xs text-gray-500">{item.subtitle}</p>
+                              )}
+                              <p className="text-sm font-medium text-[#175973]">{item.phone}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
             </nav>
 
             {/* Right side buttons and profile */}
@@ -148,30 +313,123 @@ export default function Header() {
           {isMobileMenuOpen && (
             <div className="xl:hidden border-t border-gray-200">
               <div className="px-2 pt-2 pb-3 space-y-1">
-                <Link
-                  href="#"
-                  className="block px-3 py-2 text-base font-medium text-[#B59327] hover:text-[#9d7e1f] hover:bg-[#DFDBCF] rounded-md transition-colors duration-200"
-                >
-                  For Buyers
-                </Link>
-                <Link
-                  href="#"
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#175973] hover:bg-[#DFDBCF] rounded-md transition-colors duration-200"
-                >
-                  For Owners
-                </Link>
-                <Link
-                  href="#"
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#175973] hover:bg-[#DFDBCF] rounded-md transition-colors duration-200"
-                >
-                  For Dealers/Builders
-                </Link>
-                <Link
-                  href="#"
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#175973] hover:bg-[#DFDBCF] rounded-md transition-colors duration-200"
-                >
-                  Contact
-                </Link>
+                {/* Mobile For Buyers */}
+                <div>
+                  <button
+                    onClick={() => handleMobileDropdownToggle('buyers')}
+                    className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-[#B59327] hover:text-[#9d7e1f] hover:bg-[#DFDBCF] rounded-md transition-colors duration-200"
+                  >
+                    For Buyers
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeMobileDropdown === 'buyers' ? 'rotate-180' : ''}`} />
+                  </button>
+                  
+                  {activeMobileDropdown === 'buyers' && (
+                    <div className="ml-4 mt-2 space-y-1">
+                      <div className="px-3 py-1 text-sm font-semibold text-[#175973] border-b border-gray-200">
+                        Plots/Land
+                      </div>
+                      {dropdownMenus.buyers.items.map((item, index) => (
+                        <Link
+                          key={index}
+                          href={item.href}
+                          className="block px-3 py-2 text-sm text-gray-600 hover:bg-[#DFDBCF] hover:text-[#175973] rounded-md transition-colors duration-200"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Mobile For Owners */}
+                <div>
+                  <button
+                    onClick={() => handleMobileDropdownToggle('owners')}
+                    className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-[#175973] hover:bg-[#DFDBCF] rounded-md transition-colors duration-200"
+                  >
+                    For Owners
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeMobileDropdown === 'owners' ? 'rotate-180' : ''}`} />
+                  </button>
+                  
+                  {activeMobileDropdown === 'owners' && (
+                    <div className="ml-4 mt-2 space-y-1">
+                      <div className="px-3 py-1 text-sm font-semibold text-[#175973] border-b border-gray-200">
+                        Owners Offering
+                      </div>
+                      {dropdownMenus.owners.items.map((item, index) => (
+                        <Link
+                          key={index}
+                          href={item.href}
+                          className="block px-3 py-2 text-sm text-gray-600 hover:bg-[#DFDBCF] hover:text-[#175973] rounded-md transition-colors duration-200"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Mobile For Dealers/Builders */}
+                <div>
+                  <button
+                    onClick={() => handleMobileDropdownToggle('dealers')}
+                    className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-[#175973] hover:bg-[#DFDBCF] rounded-md transition-colors duration-200"
+                  >
+                    For Dealers/Builders
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeMobileDropdown === 'dealers' ? 'rotate-180' : ''}`} />
+                  </button>
+                  
+                  {activeMobileDropdown === 'dealers' && (
+                    <div className="ml-4 mt-2 space-y-1">
+                      <div className="px-3 py-1 text-sm font-semibold text-[#175973] border-b border-gray-200">
+                        Dealers Offering
+                      </div>
+                      {dropdownMenus.dealers.items.map((item, index) => (
+                        <Link
+                          key={index}
+                          href={item.href}
+                          className="block px-3 py-2 text-sm text-gray-600 hover:bg-[#DFDBCF] hover:text-[#175973] rounded-md transition-colors duration-200"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Mobile Contact */}
+                <div>
+                  <button
+                    onClick={() => handleMobileDropdownToggle('contact')}
+                    className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-[#175973] hover:bg-[#DFDBCF] rounded-md transition-colors duration-200"
+                  >
+                    Contact
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeMobileDropdown === 'contact' ? 'rotate-180' : ''}`} />
+                  </button>
+                  
+                  {activeMobileDropdown === 'contact' && (
+                    <div className="ml-4 mt-2 space-y-1">
+                      <div className="px-3 py-1 text-sm font-semibold text-[#175973] border-b border-gray-200">
+                        Contact us
+                      </div>
+                      {dropdownMenus.contact.items.map((item, index) => (
+                        <div key={index} className="px-3 py-2 hover:bg-[#DFDBCF] rounded-md transition-colors duration-200">
+                          <div className="flex items-center">
+                            <span className="text-gray-600 mr-2">📞</span>
+                            <div>
+                              <p className="text-sm text-gray-700">{item.label}</p>
+                              {item.subtitle && (
+                                <p className="text-xs text-gray-500">{item.subtitle}</p>
+                              )}
+                              <p className="text-sm font-medium text-[#175973]">{item.phone}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
                 <div className="flex flex-col space-y-2 pt-4">
                   <button className="w-full px-4 py-2 bg-[#175973] text-white font-medium rounded-md hover:bg-[#144a5e] transition-colors duration-200">
                     Start Selling

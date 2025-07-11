@@ -2,6 +2,12 @@
 import React, { useState, useCallback, memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './App.css';
+import Image from 'next/image';
+
+import fold1image1 from '@/images/property-view/fold1image1.png';
+import fold1image2 from '@/images/property-view/fold1image2.png';
+import fold1image3 from '@/images/property-view/fold1image3.png';
+import fold2image1 from '@/images/property-view/fold2image1.png';
 
 // Redux imports
 import {
@@ -102,9 +108,9 @@ const PropertyGallery = memo(() => {
   const selectedImageIndex = useSelector(state => state.ui.selectedImageIndex);
   
   const images = [
-    "https://in-cdn1.blr1.cdn.digitaloceanspaces.com/figma-images/477fd50e4b50e960f766a5813143a23a276c6e6b.png",
-    "https://in-cdn1.blr1.cdn.digitaloceanspaces.com/figma-images/591fe1b30e2aa8c848b37b7bece89fe3380ec31f.png",
-    "https://in-cdn1.blr1.cdn.digitaloceanspaces.com/figma-images/3d47b58322f263a6a86e1b0a8f1b2ebb761a05ed.png"
+    fold1image1.src,
+    fold1image2.src,
+    fold1image3.src,
   ];
 
   const handleImageSelect = useCallback((index) => {
@@ -356,6 +362,34 @@ const TabContent = memo(() => {
           </div>
         </section>
 
+        <section>
+          <div className="floorplan-content">
+            <div className="property-type-badge">
+              <span>Land</span>
+            </div>
+            <div className="floorplan-card">
+              <div className="floorplan-details">
+                <div className="floorplan-image-wrapper">
+                  <img 
+                    src="https://in-cdn1.blr1.cdn.digitaloceanspaces.com/figma-images/5437fcaea75c079e6c07a407bad02b044fe2525d.png" 
+                    alt="Property floorplan" 
+                    className="floorplan-image"
+                  />
+                </div>
+                <div className="floorplan-info">
+                  <div className="price-info">
+                    <div className="price-amount">₹ 19.50 Lac</div>
+                    <div className="price-sqft">₹3,330 /sqft</div>
+                  </div>
+                  <button className="cta-button">
+                    <span>Call Now</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="location-section">
           <h2 className="section-title">Location Details</h2>
           <div className="location-content">
@@ -478,6 +512,7 @@ const ContactSidebar = memo(() => {
   return (
     <aside className="contact-sidebar">
       <div className="contact-header">
+        <Image className="rounded-full" src={fold2image1} alt="Profile Pic" />
         <h3 className="contact-title">Ask me for more information</h3>
       </div>
 
