@@ -8,9 +8,9 @@ const WishlistCard = () => {
   const [isImageZoomed, setIsImageZoomed] = useState(false);
 
   return (
-    <div className="max-w-7xl mx-auto p-4 bg-white">
+    <div className="max-w-7xl mx-auto px-4 py-10 bg-white">
       {/* Header */}
-      <div className="mb-6">
+      <div className="my-6">
         <h1 className="text-2xl font-medium text-gray-800">Your lists</h1>
       </div>
 
