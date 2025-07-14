@@ -126,7 +126,7 @@ const UserListingPage = () => {
               <div className="text-center py-12">
                 <Heart className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                 <p className="text-gray-500">Your wishlist is empty</p>
-                <p className="text-sm text-gray-400 mt-2">Save properties you're interested in</p>
+                <p className="text-sm text-gray-400 mt-2">Save properties you&apos;re interested in</p>
               </div>
             )}
           </div>
@@ -197,7 +197,7 @@ const UserListingPage = () => {
               <div className="text-center py-12">
                 <Heart className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                 <p className="text-gray-500">Your wishlist is empty</p>
-                <p className="text-sm text-gray-400 mt-2">Save properties you're interested in</p>
+                <p className="text-sm text-gray-400 mt-2">Save properties you&apos;re interested in</p>
               </div>
             )}
           </div>
