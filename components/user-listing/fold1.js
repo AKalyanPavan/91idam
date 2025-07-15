@@ -208,8 +208,8 @@ const UserListingPage = () => {
   };
 
   return (
-    <div className="min-h-screen">
-      <div className="max-w-4xl mx-auto px-4 py-10">
+    <div className="">
+      <div className="max-w-4xl mx-auto px-4 py-20">
         {/* Menu Navigation */}
         <div className="bg-white">
           <div className="flex flex-col sm:flex-row">
