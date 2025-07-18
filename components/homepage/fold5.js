@@ -2,17 +2,17 @@ import React from 'react';
 import { Lock, Building2, Star, Landmark, CheckCircle, Play, Calculator, Trophy, RotateCcw, TrendingUp, Globe, FileText, Download } from 'lucide-react';
 
 const EnhancedServices = () => {
-  const handleServiceClick = (linkText) => {
-    if (linkText.includes('Consultation')) {
-      window.alert('Legal Consultation Booking:\n\n• Property legal verification\n• Document review\n• Fraud protection\n• Digital locker setup\n• Rental agreement creation');
-    } else if (linkText.includes('Franchise')) {
-      window.alert('Franchise Application Form:\n\n• Business interest type\n• Territory selection\n• Investment capacity\n• Experience details\n• Business documents\n• Financial information');
-    } else if (linkText.includes('Vendor')) {
-      window.alert('Vendor Registration Form:\n\n• Service type (Builder/Lawyer/Surveyor/Loan Agent)\n• Service areas\n• Experience & pricing\n• Certifications\n• Portfolio upload');
-    } else if (linkText.includes('Demo')) {
-      window.alert('Enterprise Demo Booking:\n\n• Project type & scale\n• Multi-location requirements\n• Budget & timeline\n• Organization details\n• Compliance requirements');
-    }
-  };
+  // const handleServiceClick = (linkText) => {
+  //   if (linkText.includes('Consultation')) {
+  //     window.alert('Legal Consultation Booking:\n\n• Property legal verification\n• Document review\n• Fraud protection\n• Digital locker setup\n• Rental agreement creation');
+  //   } else if (linkText.includes('Franchise')) {
+  //     window.alert('Franchise Application Form:\n\n• Business interest type\n• Territory selection\n• Investment capacity\n• Experience details\n• Business documents\n• Financial information');
+  //   } else if (linkText.includes('Vendor')) {
+  //     window.alert('Vendor Registration Form:\n\n• Service type (Builder/Lawyer/Surveyor/Loan Agent)\n• Service areas\n• Experience & pricing\n• Certifications\n• Portfolio upload');
+  //   } else if (linkText.includes('Demo')) {
+  //     window.alert('Enterprise Demo Booking:\n\n• Project type & scale\n• Multi-location requirements\n• Budget & timeline\n• Organization details\n• Compliance requirements');
+  //   }
+  // };
 
   const services = [
     {

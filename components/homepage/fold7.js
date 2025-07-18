@@ -59,7 +59,7 @@ const TestimonialsSection = ({ data = testimonialsData }) => {
             >
               <div className="mb-5">
                 <p className="italic text-gray-700 leading-relaxed text-sm mb-5">
-                  "{testimonial.content}"
+                  &quot;{testimonial.content}&quot;
                 </p>
                 <div>
                   <strong className="text-[#2c5f7e] block mb-1">

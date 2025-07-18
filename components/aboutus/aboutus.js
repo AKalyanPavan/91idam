@@ -1,6 +1,8 @@
 'use client'
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+
 import fold2image1 from '@/images/aboutus/fold2image1.svg';
 import fold2image2 from '@/images/aboutus/fold2image2.svg';
 
@@ -48,7 +50,7 @@ const Aboutus = () => {
       <div className="max-w-6xl mx-auto py-10 px-5">
         {/* Breadcrumb */}
         <div className="mb-8 text-gray-600 text-sm">
-          <a href="/" className="text-[#2C5F7E] no-underline hover:underline">Home</a> / About Us
+          <Link href="/" className="text-[#2C5F7E] no-underline hover:underline">Home</Link> / About Us
         </div>
 
         {/* Hero Section */}
@@ -216,7 +218,7 @@ const Aboutus = () => {
                   </div>
                   <div className="flex items-start">
                     <span className="text-green-600 font-bold mr-2">✓</span>
-                    <span>India's first regional real estate data center</span>
+                    <span>India&apos;s first regional real estate data center</span>
                   </div>
                   <div className="flex items-start">
                     <span className="text-green-600 font-bold mr-2">✓</span>
@@ -244,7 +246,7 @@ const Aboutus = () => {
               <p className="leading-relaxed font-['Mongolian_Baiti'] text-[18px]">
                 Visionary leader driving the transformation of Indian real estate through technology and 
                 ethical practices. With deep industry expertise and commitment to transparency, 
-                Pratheesh is building IDAM as India's most trusted real estate platform.
+                Pratheesh is building IDAM as India&apos;s most trusted real estate platform.
               </p>
             </div>
           </div>
