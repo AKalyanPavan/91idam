@@ -1,86 +1,103 @@
-const Fold6 = () => {
-  const cities = [
+import React from 'react';
+
+const ComparisonTable = () => {
+  const comparisonData = [
     {
-      id: 1,
-      name: "Delhi",
-      properties: "15,000+ Properties",
-      image: "https://in-cdn1.blr1.cdn.digitaloceanspaces.com/figma-images/7e47f3ecffd0d65076e64a6b1f1f12ca0a3c936d.png"
+      feature: "Legal Verification",
+      traditional: "❌ Manual, time-consuming, unreliable",
+      idam: "✅ Automated verification with legal experts"
     },
     {
-      id: 2,
-      name: "Mumbai", 
-      properties: "15,000+ Properties",
-      image: "https://in-cdn1.blr1.cdn.digitaloceanspaces.com/figma-images/dcae0469056a0c4d221aaaf4e520de25d84a7f31.png"
+      feature: "Fraud Protection",
+      traditional: "❌ Limited protection, buyer beware",
+      idam: "✅ Multi-layer fraud prevention system"
     },
     {
-      id: 3,
-      name: "Bangalore",
-      properties: "15,000+ Properties", 
-      image: "https://in-cdn1.blr1.cdn.digitaloceanspaces.com/figma-images/c93c67184ff554ca37fb7cd91f6cd073d22e33e2.png"
+      feature: "Document Management",
+      traditional: "❌ Physical papers, risk of loss",
+      idam: "✅ Digital locker with cloud backup"
     },
     {
-      id: 4,
-      name: "Hyderabad",
-      properties: "15,000+ Properties",
-      image: "https://in-cdn1.blr1.cdn.digitaloceanspaces.com/figma-images/a75dff7e5e33730f25de81b8cbc09716356220c5.png"
+      feature: "Business Support",
+      traditional: "❌ Individual efforts, no system",
+      idam: "✅ Complete franchise system with CRM"
     },
     {
-      id: 5,
-      name: "Chennai", 
-      properties: "15,000+ Properties",
-      image: "https://in-cdn1.blr1.cdn.digitaloceanspaces.com/figma-images/9e077fcb22a2ee4dcd958780ac07a35f86284c44.png"
+      feature: "Technology Integration",
+      traditional: "❌ Basic listings, no automation",
+      idam: "✅ Advanced CRM, WhatsApp automation"
     },
     {
-      id: 6,
-      name: "Pune",
-      properties: "15,000+ Properties",
-      image: "https://in-cdn1.blr1.cdn.digitaloceanspaces.com/figma-images/3c8da4da6576b1c86a577e46e4b20a6b5165fb4b.png"
+      feature: "Service Provider Network",
+      traditional: "❌ Unverified, inconsistent quality",
+      idam: "✅ Verified partners with quality standards"
+    },
+    {
+      feature: "Enterprise Solutions",
+      traditional: "❌ No standardized processes",
+      idam: "✅ Multi-location SLA with compliance"
     }
   ];
 
   return (
-    <section className="py-16">
-      <div className="max-w-7xl mx-auto px-4 lg:px-8">
-        <div className="text-center mb-12">
-          <p className="text-base mb-4" style={{ color: 'rgb(103, 119, 136)', fontFamily: 'Mongolian Baiti', textTransform: 'uppercase' }}>
-            Cities You&apos;ll Love
-          </p>
-          <h2 className="font-semibold text-3xl lg:text-4xl mb-4" style={{ color: 'rgb(30, 32, 34)', fontFamily: 'Montserrat' }}>
-            Choose Plots in India&apos;s Most Popular Cities
-          </h2>
+    <div className="bg-white p-8 md:p-12 my-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-[#2C5F7E] mb-8 text-center">
+        Traditional vs IDAM: See the Difference
+      </h2>
+      
+      <div className="max-w-4xl mx-auto mt-8 rounded-md overflow-hidden shadow-lg">
+        {/* Header Row */}
+        <div className="grid grid-cols-3 min-h-[60px]">
+          <div className="bg-[#2C5F7E] text-white p-5 flex items-center justify-center text-center font-bold text-lg md:text-xl">
+            Features
+          </div>
+          <div className="bg-[#FFEAA7] text-[#D63031] p-5 flex items-center justify-center text-center font-bold text-lg md:text-xl">
+            Traditional Approach
+          </div>
+          <div className="bg-[#D4EDDA] text-[#155724] p-5 flex items-center justify-center text-center font-bold text-lg md:text-xl">
+            IDAM Platform
+          </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {cities.map(city => (
-            <CityCard key={city.id} {...city} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const CityCard = ({ name, properties, image }) => {
-  return (
-    <div className="bg-white rounded-lg overflow-hidden">
-      <div className="relative">
-        <img 
-          src={image} 
-          alt={name}
-          className="w-full h-60 object-cover rounded-t-lg"
-        />
+        {/* Data Rows */}
+        {comparisonData.map((row, index) => (
+          <div 
+            key={index} 
+            className="grid grid-cols-3 border-b border-amber-100 last:border-b-0 hover:bg-gray-50 transition-colors duration-300"
+          >
+            {/* Feature Column */}
+            <div className="bg-gray-50 text-[#2C5F7E] font-semibold p-5 flex items-center justify-center md:justify-start text-center md:text-left border-b md:border-b-0 md:border-r border-amber-100">
+              {row.feature}
+            </div>
+            
+            {/* Traditional Column */}
+            <div className="bg-[#FFEAA7] text-[#D63031] p-5 flex items-center justify-center text-center font-medium border-b md:border-b-0 md:border-r border-amber-100">
+              {row.traditional}
+            </div>
+            
+            {/* IDAM Column */}
+            <div className="bg-[#D4EDDA] text-[#155724] p-5 flex items-center justify-center text-center font-medium">
+              {row.idam}
+            </div>
+          </div>
+        ))}
       </div>
       
-      <div className="p-6">
-        <h3 className="font-semibold text-xl mb-2" style={{ color: 'rgb(30, 32, 34)', fontFamily: 'Montserrat' }}>
-          {name}
-        </h3>
-        <p className="text-base" style={{ color: 'rgb(30, 32, 34)', fontFamily: 'Mongolian Baiti' }}>
-          {properties}
-        </p>
+      {/* Mobile Enhancement: Add visual indicators */}
+      <div className="mt-8 md:hidden">
+        <div className="flex justify-center space-x-8">
+          <div className="flex items-center space-x-2">
+            <div className="w-4 h-4 bg-yellow-100 rounded border border-yellow-200"></div>
+            <span className="text-sm text-gray-600">Traditional</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <div className="w-4 h-4 bg-green-100 rounded border border-green-200"></div>
+            <span className="text-sm text-gray-600">IDAM</span>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Fold6;
+export default ComparisonTable;

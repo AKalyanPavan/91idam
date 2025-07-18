@@ -120,3 +120,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+.bg-quote {
+  background-image: url('/aboutus/quote.png');
+  background-position: left;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  background-size: 45%;
+  z-index: 1;
+  background-repeat: no-repeat;
+}

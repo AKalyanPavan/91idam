@@ -5,6 +5,8 @@ import Fold3 from './fold3.js'
 import Fold4 from './fold4.js'
 import Fold5 from './fold5.js'
 import Fold6 from './fold6.js'
+import Fold7 from './fold7.js'
+import Fold8 from './fold8.js'
 import Footer from '@/components/footer.js'
 
 export default function Homepage() {
@@ -21,6 +23,8 @@ export default function Homepage() {
 			<Fold4 />
 			<Fold5 />
 			<Fold6 />
+			<Fold7 />
+			<Fold8 />
 			<Footer />
 		</>
 	)
