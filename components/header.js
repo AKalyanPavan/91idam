@@ -37,34 +37,29 @@ export default function Header() {
 
   // Dropdown menu data
   const dropdownMenus = {
-    buyers: {
-      title: "For Buyers",
+    customers: {
+      title: "For Customers",
       items: [
-        { label: "Corner Plots", href: "#" },
-        { label: "Plots in Gated Community", href: "#" },
-        { label: "East facing plots", href: "#" },
-        { label: "Plots with Compound wall", href: "#" }
+        
       ]
     },
     owners: {
-      title: "For Owners",
+      title: "Franchise / Owners",
       items: [
-        { label: "Post Property For Free", href: "#" },
-        { label: "View Responses", href: "#" }
+        
       ]
     },
-    dealers: {
-      title: "For Dealers/Builders",
+    partners: {
+      title: "Partners",
       items: [
-        { label: "Post Property", href: "#" },
-        { label: "View Responses", href: "#" }
+        { label: "Service Stakeholders", href: "#" },
+        { label: "Institutional Clients", href: "#" }
       ]
     },
     contact: {
       title: "Contact",
       items: [
-        { label: "Toll Free | 9.30 AM to 6.30 PM", subtitle: "(Mon-Sun)", phone: "0000-00-00000", href: "#" },
-        { label: "For International Users", phone: "+91-000-0000000", href: "#" }
+        
       ]
     }
   }
@@ -90,14 +85,16 @@ export default function Header() {
               {/* For Buyers Dropdown */}
               <div className="relative">
                 <button 
-                  onClick={() => handleDropdownToggle('buyers')}
+                  onClick={() => handleDropdownToggle('For Customers')}
                   className="flex items-center text-[#B59327] hover:text-[#9d7e1f] font-medium transition-colors duration-200"
                 >
-                  For Buyers
-                  <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${activeDropdown === 'buyers' ? 'rotate-180' : ''}`} />
+                  For Customers
+                  {dropdownMenus.customers.items.length > 0 &&
+                    <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${activeDropdown === 'customers' ? 'rotate-180' : ''}`} />
+                  }
                 </button>
 
-                {activeDropdown === 'buyers' && (
+                {activeDropdown === 'customers' && (
                   <>
                     <div 
                       className="fixed inset-0 z-10" 
@@ -107,7 +104,7 @@ export default function Header() {
                       <div className="px-4 py-2 border-b border-gray-100">
                         <p className="text-sm font-semibold text-[#175973]">Plots/Land</p>
                       </div>
-                      {dropdownMenus.buyers.items.map((item, index) => (
+                      {dropdownMenus.customers.items.map((item, index) => (
                         <Link
                           key={index}
                           href={item.href}
@@ -127,8 +124,10 @@ export default function Header() {
                   onClick={() => handleDropdownToggle('owners')}
                   className="flex items-center text-gray-700 hover:text-[#175973] font-medium transition-colors duration-200"
                 >
-                  For Owners
-                  <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${activeDropdown === 'owners' ? 'rotate-180' : ''}`} />
+                  Franchise / Owners
+                  {dropdownMenus.owners.items.length > 0 &&
+                    <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${activeDropdown === 'owners' ? 'rotate-180' : ''}`} />
+                  }
                 </button>
 
                 {activeDropdown === 'owners' && (
@@ -158,24 +157,23 @@ export default function Header() {
               {/* For Dealers/Builders Dropdown */}
               <div className="relative">
                 <button 
-                  onClick={() => handleDropdownToggle('dealers')}
+                  onClick={() => handleDropdownToggle('partners')}
                   className="flex items-center text-gray-700 hover:text-[#175973] font-medium transition-colors duration-200"
                 >
-                  For Dealers/Builders
-                  <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${activeDropdown === 'dealers' ? 'rotate-180' : ''}`} />
+                  Partners
+                  {dropdownMenus.partners.items.length > 0 &&
+                    <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${activeDropdown === 'partners' ? 'rotate-180' : ''}`} />
+                  }
                 </button>
 
-                {activeDropdown === 'dealers' && (
+                {activeDropdown === 'partners' && (
                   <>
                     <div 
                       className="fixed inset-0 z-10" 
                       onClick={closeAllDropdowns}
                     ></div>
                     <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-20">
-                      <div className="px-4 py-2 border-b border-gray-100">
-                        <p className="text-sm font-semibold text-[#175973]">Dealers Offering</p>
-                      </div>
-                      {dropdownMenus.dealers.items.map((item, index) => (
+                      {dropdownMenus.partners.items.map((item, index) => (
                         <Link
                           key={index}
                           href={item.href}
@@ -196,7 +194,9 @@ export default function Header() {
                   className="flex items-center text-gray-700 hover:text-[#175973] font-medium transition-colors duration-200"
                 >
                   Contact
-                  <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${activeDropdown === 'contact' ? 'rotate-180' : ''}`} />
+                  {dropdownMenus.contact.items.length > 0 &&
+                    <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${activeDropdown === 'contact' ? 'rotate-180' : ''}`} />
+                  }
                 </button>
 
                 {activeDropdown === 'contact' && (
@@ -206,9 +206,7 @@ export default function Header() {
                       onClick={closeAllDropdowns}
                     ></div>
                     <div className="absolute left-0 mt-2 w-80 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-20">
-                      <div className="px-4 py-2 border-b border-gray-100">
-                        <p className="text-sm font-semibold text-[#175973]">Contact us</p>
-                      </div>
+                      
                       {dropdownMenus.contact.items.map((item, index) => (
                         <div key={index} className="px-4 py-3 hover:bg-[#DFDBCF] transition-colors duration-200">
                           <div className="flex items-center">
