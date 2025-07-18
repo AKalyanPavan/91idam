@@ -1,5 +1,6 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
+import Link from 'next/link';
 
 const styles = `
     
@@ -734,7 +735,7 @@ export default function WhyChooseIdam() {
 	return(
 	    <main className="main-content">
 	        <div className="breadcrumb">
-	            <a href="/">Home</a> / Why Choose IDAM
+	            <Link href="/">Home</Link> / Why Choose IDAM
 	        </div>
 
 	        <div className="hero-section">
@@ -765,7 +766,7 @@ export default function WhyChooseIdam() {
 	        </div>
 
 	        <div className="pain-points-section">
-	            <h2 className="section-title">We Solve Real Estate's Biggest Problems</h2>
+	            <h2 className="section-title">We Solve Real Estate&apos;s Biggest Problems</h2>
 	            <p className="pain-intro">
 	                Traditional real estate transactions are plagued with challenges that cost time, money, and peace of mind. 
 	                IDAM addresses these pain points head-on with systematic solutions.
@@ -876,7 +877,7 @@ export default function WhyChooseIdam() {
 	                    <ul className="solution-features">
 	                        <li><strong>Business-in-a-Box:</strong> Complete franchise package with established processes and tools</li>
 	                        <li><strong>Advanced CRM Tools:</strong> Professional customer relationship management and lead tracking systems</li>
-	                        <li><strong>Brand Recognition:</strong> Leverage IDAM's trusted brand and marketing support</li>
+	                        <li><strong>Brand Recognition:</strong> Leverage IDAM&apos;s trusted brand and marketing support</li>
 	                        <li><strong>Recurring Income Streams:</strong> Multiple revenue sources through transactions, rentals, and services</li>
 	                        <li><strong>Training & Support:</strong> Ongoing business development and operational guidance</li>
 	                    </ul>
@@ -996,7 +997,7 @@ export default function WhyChooseIdam() {
 	                <div className="trust-item">
 	                    <span className="trust-item-icon">🤝</span>
 	                    <h4 className="trust-item-title">Integrity & Ethics</h4>
-	                    <p className="trust-item-description">We stand by what's right with clear pricing and ethical conduct in every transaction</p>
+	                    <p className="trust-item-description">We stand by what&apos;s right with clear pricing and ethical conduct in every transaction</p>
 	                </div>
 	                
 	                <div className="trust-item">
@@ -1018,7 +1019,7 @@ export default function WhyChooseIdam() {
 	                <h2 className="cta-title">Experience the IDAM Difference</h2>
 	                <p className="cta-description">
 	                    Join thousands who have chosen IDAM for safe, systematic, and successful real estate transactions. 
-	                    Whether you're buying, selling, or building a business, we're here to make it happen.
+	                    Whether you&apos;re buying, selling, or building a business, we&apos;re here to make it happen.
 	                </p>
 	                <div className="cta-buttons-section">
 	                    <a href="/contact" className="btn-large primary">Get Started Today</a>
