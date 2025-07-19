@@ -361,11 +361,72 @@ export const UserAuthentication = ({ isOpen, onClose }) => {
 
   const handleSubmit = (isSignup = false) => {
     if (validateForm(isSignup)) {
-      // Handle form submission logic here
       const formData = getCurrentFormData();
+      if (!isSignup) {
+        handleLoginApi(formData);
+      } else {
+        handleSignupApi(formData);
+      }
       console.log('Form submitted:', formData);
     }
   };
+
+  const handleLoginApi = async (formData) => {
+
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    try {
+      const response = await fetch(`${baseUrl}/signin`, {
+        method: 'POST',
+        headers: {
+        },
+        body: JSON.stringify({
+          email_id: formData.email,
+          password: formData.password,
+          timzone: timezone,
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        debugger
+      } else {
+        console.error('Signin error:', err);
+      }
+    } catch (err) {
+      console.error('Signin error:', err);
+    }
+  }
+
+  const handleSignupApi = async (formData) => {
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    try {
+      const response = await fetch(`${baseUrl}/signup`, {
+        method: 'POST',
+        headers: {
+        },
+        body: JSON.stringify({
+          emailId: formData.email,
+          password: formData.password,
+          timzone: timezone,
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        debugger
+      } else {
+        console.error('Signin error:', err);
+      }
+    } catch (err) {
+      console.error('Signin error:', err);
+    }
+  }
 
   const resetAndClose = () => {
     setCurrentView('login');

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { User, Menu, X, ChevronDown } from 'lucide-react'
@@ -13,6 +13,7 @@ export default function Header() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [activeMobileDropdown, setActiveMobileDropdown] = useState(null)
+  const [isUserSignedIn, setIsUserSignedIn] = useState(false)
 
   const toggleProfileMenu = () => {
     setIsProfileMenuOpen(!isProfileMenuOpen)
@@ -63,6 +64,35 @@ export default function Header() {
       ]
     }
   }
+
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+  const checkUserStatus = async () => {
+    try {
+      const response = await fetch(`${baseUrl}/ustat`, {
+        method: 'GET',
+        headers: {
+        },
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setIsUserSignedIn(data);
+      } else {
+        console.error('Network error:', err);
+      }
+    } catch (err) {
+      console.error('Network error:', err);
+    } 
+    // finally {
+    //   setLoading(false);
+    // }
+  }
+
+  useEffect(() => {
+    checkUserStatus();
+  });
 
   return (
     <>
@@ -261,33 +291,41 @@ export default function Header() {
                     <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-20">
                       {/* LOGIN text at top */}
                       <div className="px-4 py-2 border-b border-gray-100 cursor-pointer">
-                        <p className="text-sm font-medium text-[#175973]" onClick={() => setIsAuthModalOpen(true)}>LOGIN</p>
+                        { isUserSignedIn ?
+                          <p className="text-sm font-medium text-[#175973]">My Profile</p>
+                          :
+                          <p className="text-sm font-medium text-[#175973]" onClick={() => setIsAuthModalOpen(true)}>LOGIN</p>
+                        }
                       </div>
                       
-                      <Link
-                        href="#"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#DFDBCF] transition-colors duration-200"
-                      >
-                        My Activity
-                      </Link>
-                      <Link
-                        href="#"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#DFDBCF] transition-colors duration-200"
-                      >
-                        Latest searches
-                      </Link>
-                      <Link
-                        href="#"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#DFDBCF] transition-colors duration-200"
-                      >
-                        Wish Listed
-                      </Link>
-                      <Link
-                        href="#"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#DFDBCF] transition-colors duration-200"
-                      >
-                        Contacted
-                      </Link>
+                      { isUserSignedIn && 
+                        <>
+                          <Link
+                            href="#"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#DFDBCF] transition-colors duration-200"
+                          >
+                            My Activity
+                          </Link>
+                          <Link
+                            href="#"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#DFDBCF] transition-colors duration-200"
+                          >
+                            Latest searches
+                          </Link>
+                          <Link
+                            href="#"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#DFDBCF] transition-colors duration-200"
+                          >
+                            Wish Listed
+                          </Link>
+                          <Link
+                            href="#"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#DFDBCF] transition-colors duration-200"
+                          >
+                            Contacted
+                          </Link>
+                        </>
+                      }
                     </div>
                   </>
                 )}
