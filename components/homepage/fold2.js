@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 // Image URL mappings
 const imageMap = {
@@ -86,7 +87,7 @@ const Fold2 = () => {
           >
             {/* Place Image */}
             <div className="w-full h-60 overflow-hidden">
-              <img 
+              <Image 
                 src={place.image} 
                 alt={place.name} 
                 className="w-full h-full object-cover"

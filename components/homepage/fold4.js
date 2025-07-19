@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const Fold4 = () => {
   return (
     <section className="py-16 bg-white">
@@ -36,7 +38,7 @@ const Fold4 = () => {
 
           {/* Right Image */}
           <div className="relative">
-            <img 
+            <Image 
               src="https://in-cdn1.blr1.cdn.digitaloceanspaces.com/figma-images/3920cf718b6b33916c6db37b337df8dfe33265d1.png"
               alt="Property showcase"
               className="w-full h-auto rounded-2xl"

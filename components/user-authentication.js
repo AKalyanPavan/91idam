@@ -392,6 +392,7 @@ export const UserAuthentication = ({ isOpen, onClose }) => {
 
       if (response.ok) {
         debugger
+        console.log(data);
       } else {
         console.error('Signin error:', err);
       }
@@ -420,6 +421,7 @@ export const UserAuthentication = ({ isOpen, onClose }) => {
 
       if (response.ok) {
         debugger
+        console.log(data);
       } else {
         console.error('Signin error:', err);
       }
